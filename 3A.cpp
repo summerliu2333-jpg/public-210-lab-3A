@@ -1,3 +1,4 @@
+//COMSC-210-5068 lab3A Yang Liu
 #include <iostream>
 #include <string>
 using namespace std;
@@ -14,6 +15,7 @@ struct Restaurant
 
 Restaurant createRestaurant(){
     Restaurant temp;
+    string input;
 
     cout << "Enter restaurant name: ";
     getline(cin, temp.name);
@@ -22,20 +24,23 @@ Restaurant createRestaurant(){
     getline(cin, temp.address);
 
     cout << "Enter rating (1-5): ";
-    cin >> temp.rating;
+    getline(cin, input);
+    temp.rating = stoi(input);
 
     cout << "Enter number of seats: ";
-    cin >> temp.seatCount;
+    getline(cin, input);
+    temp.seatCount = stoi(input);
  
     cout << "Has delivery? (1=yes, 0=no): ";
-    cin >> temp.hasDelivery;   
+    getline(cin, input);
+    temp.hasDelivery = (stoi(input) == 1);
 
     return temp;
 }
 
 void printRestaurant(Restaurant r)
 {
-    cout << "---- Restaurant Info ----";
+    cout << "---- Restaurant Info ----" << endl;
     cout << "Name: " << r.name << endl;
     cout << "Address: " << r.address << endl;
     cout << "Rating: " << r.rating << endl;
@@ -47,8 +52,14 @@ void printRestaurant(Restaurant r)
     else
         cout << "No";
 
-    cout << "--------------------";
+    cout << endl;
+    cout << "--------------------" << endl;
+    cout << endl;
+    cout << endl;
 }
+
+Restaurant createRestaurant();
+void printRestaurant(Restaurant r);
 
 int main() {
 
